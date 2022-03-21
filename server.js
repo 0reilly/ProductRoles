@@ -17,15 +17,15 @@ const YOUR_DOMAIN = '';
 
 app.use(express.json())
 app.use(express.static("client/build"));
-const stripe = require('stripe')(process.env.STRIPE_SECRET);
+const stripe = require('stripe')(process.env.SECRET);
 
 if(process.env.NODE_ENV === "production"){
-  console.log(process.env.STRIPE_SECRET)
+  console.log(process.env.SECRET)
   app.use(express.static(path.join(__dirname, "client/build")));
     
 } 
 else{
-  console.log(process.env.STRIPE_SECRET)
+  console.log(process.env.SECRET)
   //const stripe = require('stripe')(process.env.SECRET);
 }
 
@@ -72,7 +72,6 @@ app.post("/create-payment-intent", async (req, res) => {
 
 //Get all jobs
 app.get("/api/v1/jobs", async (req, res) => {
-  console.log(db.secret)
     try {
         const results = await db.query("select * from jobs");
     res.status(200).json({
@@ -81,7 +80,6 @@ app.get("/api/v1/jobs", async (req, res) => {
         data: {
             jobs: results.rows
         },
-        
     });
     
     } catch(err){
