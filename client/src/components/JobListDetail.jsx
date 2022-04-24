@@ -26,6 +26,7 @@ const JobListDetail = (props) => {
 
     const handleApplyRedirect = (e, id, link) => {
         e.stopPropagation()
+        console.log(link)
         window.location.assign(`http://${link}`);
     };
 
