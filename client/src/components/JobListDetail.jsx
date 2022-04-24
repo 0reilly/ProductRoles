@@ -35,8 +35,8 @@ const JobListDetail = (props) => {
 
     return (
         <div class="list-group mt-3 ">
-            <h5 className="ml-2">Today's Sponsored Post Opportunities</h5>
-            <p className="ml-2">(click each row to view details about the sponsorship)</p>
+            <h5 className="ml-2">Today's good WLB jobs</h5>
+            <p className="ml-2">(click each row to view details about the job)</p>
             <table class="table table-condensed ">
                 <tbody>
                 {jobs && jobs.sort((a, b) => a.id < b.id ? 1 : -1).map(job => {
@@ -68,7 +68,7 @@ const JobListDetail = (props) => {
                                             <button
                                                 onClick={(e) => handleApplyRedirect(e, job.id, job.link)}
                                                 className="mt-2 btn btn-primary "
-                                            >Apply for this sponsorship
+                                            >Apply for this Job
                                             </button>
                                         </div>
 

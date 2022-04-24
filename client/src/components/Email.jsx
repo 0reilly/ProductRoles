@@ -20,7 +20,7 @@ const Email = () => {
     return (
         <div class="container-fluid mt-3">
             <div class="row justify-content-center">
-                <p className="pt-2 pl-2">Join 1,200 other influencers and get a daily email of all new sponshorship posts! </p>
+                <p className="pt-2 pl-2">Join 356 other people searching for jobs with good WLB and get a daily email of all posts! </p>
             </div>
             <div class="row justify-content-center">
                 <div class="col-xs-8"><input

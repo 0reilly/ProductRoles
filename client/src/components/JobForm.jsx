@@ -79,19 +79,19 @@ const JobForm = () => {
                                 />
                             </div>
                             <div className="pt-2 pb-2">
-                                <span>Social Media Platform</span>
+                                <span>Job Title</span>
                                 <select
                                     value={primaryTag}
                                     onChange={(e) => setPrimaryTag(e.target.value)}
                                     className="custom-select my-1 mr-sm-2"
                                 >
-                                    <option enabled>Select a social media platform</option>
-                                    <option value="TikTok">TikTok</option>
-                                    <option value="Instagram">Instagram</option>
-                                    <option value="YouTube">YouTube</option>
-                                    <option value="Twitter">Twitter</option>
-                                    <option value="Facebook">Facebook</option>
-                                    <option value="Snapchat">Snapchat</option>
+                                    <option>Select a Role</option>
+                                    <option value="Software Engineer">Software Engineer</option>
+                                    <option value="Product Manager">Product Manager</option>
+                                    <option value="Designer">Designer</option>
+                                    <option value="Content Writer">Content Writer</option>
+                                    <option value="QA">QA</option>
+                                    <option value="Customer Support">Customer Support</option>
                                 </select>
                             </div>
                             <div className="pt-2 pb-2">
@@ -119,6 +119,7 @@ const JobForm = () => {
                                 <span>PAY</span>
                                 <input
                                     value={pay}
+                                    placeholder={'$'}
                                     onChange={(e) => setPay(e.target.value)}
                                     className="form-control"
                                     type="text"

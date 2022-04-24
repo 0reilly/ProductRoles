@@ -20,15 +20,9 @@ app.use(express.static("client/build"));
 const stripe = require('stripe')(process.env.SECRET);
 
 if(process.env.NODE_ENV === "production"){
-  console.log(process.env.SECRET)
   app.use(express.static(path.join(__dirname, "client/build")));
     
-} 
-else{
-  console.log(process.env.SECRET)
-  //const stripe = require('stripe')(process.env.SECRET);
 }
-
 
 app.post("/create-payment-intent", async (req, res) => {
   
@@ -142,9 +136,8 @@ app.post("/api/v1/jobs/email", async (req, res) =>{
 });
 
 
-
-
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
     console.log(`server is up and running on ${port}`);
+
 });
