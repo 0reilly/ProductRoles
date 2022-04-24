@@ -8,7 +8,9 @@ import MDEditor from '@uiw/react-md-editor';
 const JobListDetail = (props) => {
     const {jobs, setJobs} = useContext(JobsContext)
     const {id} = useParams();
+
     let history = useHistory()
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -33,12 +35,11 @@ const JobListDetail = (props) => {
 
     return (
         <div class="list-group mt-3 ">
-            <h5 className="ml-2">Today's Product Jobs</h5>
-            <p className="ml-2">(click each row to view job description)</p>
+            <h5 className="ml-2">Today's Sponsored Post Opportunities</h5>
+            <p className="ml-2">(click each row to view details about the sponsorship)</p>
             <table class="table table-condensed ">
                 <tbody>
                 {jobs && jobs.sort((a, b) => a.id < b.id ? 1 : -1).map(job => {
-
                     if (job.id.toString() === id) {
                         return (
                             <>
@@ -48,8 +49,8 @@ const JobListDetail = (props) => {
                                     key={job.id}
                                 >
                                     <td>{job.name}</td>
-                                    <td>{job.location}</td>
                                     <td>{job.primary_tag}</td>
+                                    <td>{job.pay}</td>
                                     <td>
                                         <button
                                             onClick={(e) => handleApplyRedirect(e, job.id, job.link)}
@@ -58,7 +59,6 @@ const JobListDetail = (props) => {
                                         </button>
                                     </td>
                                 </tr>
-
                                 <tr>
                                     <td className="container" colSpan="999">
                                         <div className="row justify-content-center pl-3 pr-3">
@@ -68,7 +68,7 @@ const JobListDetail = (props) => {
                                             <button
                                                 onClick={(e) => handleApplyRedirect(e, job.id, job.link)}
                                                 className="mt-2 btn btn-primary "
-                                            >Apply for this position
+                                            >Apply for this sponsorship
                                             </button>
                                         </div>
 
@@ -84,8 +84,8 @@ const JobListDetail = (props) => {
                                 key={job.id}
                             >
                                 <td>{job.name}</td>
-                                <td>{job.location}</td>
                                 <td>{job.primary_tag}</td>
+                                <td>{job.pay}</td>
                                 <td>
                                     <button
                                         onClick={(e) => handleApplyRedirect(e, job.id, job.link)}
@@ -96,8 +96,6 @@ const JobListDetail = (props) => {
                             </tr>
                         );
                     }
-
-
                 })}
                 </tbody>
             </table>

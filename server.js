@@ -97,7 +97,6 @@ app.get("/api/v1/jobs/:id", async (req, res) => {
             status: "success",
             data: {
                 job: job.rows[0],
-                reviews: reviews.rows
             }
         })
     }
@@ -111,7 +110,7 @@ app.get("/api/v1/jobs/:id", async (req, res) => {
 app.post("/api/v1/jobs", async (req, res) =>{
     try{
 
-        const results = await db.query("INSERT INTO jobs (name, location, description, link, primary_tag, color) values ($1, $2, $3, $4, $5, $6) returning *", [req.body.name, req.body.location, req.body.description, req.body.link, req.body.primary_tag, req.body.color])
+        const results = await db.query("INSERT INTO jobs (name, pay, description, link, primary_tag, color) values ($1, $2, $3, $4, $5, $6) returning *", [req.body.name, req.body.pay, req.body.description, req.body.link, req.body.primary_tag, req.body.color])
         res.status(201).json({
             status: "success",
             data: {
