@@ -7,15 +7,24 @@ const VisitorCount = () => {
 
     useEffect(() => {
         console.log('fetching visitor count');
-        const fetchData = async () => {
-            axios({
-                baseURL: 'https://simpleanalytics.com/goodwlb.com.json?version=5&fields=histogram&start=today&end=today',
-                headers: {
-                    'api-key': 'sa_api_key_NXLXZ3c6o9wzGRRue8jpCbObMBq7yUS8iIjO'
-                },
+
+        fetch(
+            'https://simpleanalytics.com/goodwlb.com.json?version=5&fields=histogram&start=today&end=today',
+            {
+            method: 'get',
+            headers: {
+                "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+                "sa-api-key": "sa_api_key_NXLXZ3c6o9wzGRRue8jpCbObMBq7yUS8iIjO"
+            },
+        })
+            .then(json)
+            .then(function (data) {
+                console.log('Request succeeded with JSON response', data);
+                setCount(5);
+            })
+            .catch(function (error) {
+                console.log('Request failed', error);
             });
-        }
-        fetchData().then(res => {console.log(res);setCount(res.data.histogram.visitors);});
     }, [count]);
 
     return (
