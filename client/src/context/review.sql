@@ -1,8 +1,13 @@
-CREATE TABLE reviews (
+CREATE TABLE jobs (
     id BIGSERIAL NOT NULL PRIMARY KEY,
-    restaurant INTEGER NOT NULL,
-    name VARCHAR(50) NOT NULL,
-    review TEXT NOT NULL,
-    rating INT NOT NULL check(rating >=1 and rating <=5),
-    FOREIGN KEY (restaurant_id) REFERENCES restaurants (id)
+    name TEXT NOT NULL,
+    pay INTEGER NOT NULL,
+    description TEXT NOT NULL,
+    link TEXT NOT NULL,
+    primary_tag TEXT NOT NULL,
+    color TEXT NOT NULL,
+);
+
+CREATE TABLE subscribers (
+    email TEXT NOT NULL PRIMARY KEY,
 );
