@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {useState} from "react"
-import JobFinder from "../apis/JobFinder"
+import axios from "axios";
 
 const VisitorCount = () => {
     const [count, setCount] = useState("");
@@ -28,4 +28,4 @@ const VisitorCount = () => {
     )
 }
 
-export default Email;
+export default VisitorCount;
