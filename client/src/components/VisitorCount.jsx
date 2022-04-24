@@ -6,33 +6,20 @@ import {json} from "express";
 const VisitorCount = () => {
     const [count, setCount] = useState("");
 
-    useEffect(() => {
-        console.log('fetching visitor count');
-
-        fetch(
-            'https://simpleanalytics.com/goodwlb.com.json?version=5&fields=histogram&start=today&end=today',
-            {
-            method: 'get',
-            headers: {
-                "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-                "sa-api-key": "sa_api_key_NXLXZ3c6o9wzGRRue8jpCbObMBq7yUS8iIjO"
-            },
-        })
-            .then(json)
-            .then(function (data) {
-                console.log('Request succeeded with JSON response', data);
-                setCount(5);
-            })
-            .catch(function (error) {
-                console.log('Request failed', error);
-            });
-    }, [count]);
-
     return (
         <div class="container-fluid mt-3">
             <div class="row justify-content-center">
-                <p className="pt-2 pl-2">Vistior Count: {count} </p>
-                <p>{}</p>
+                <p className="pt-2 pl-2">Pageviews and other stats</>
+                <a
+                    href="https://simpleanalytics.com/goodwlb.com?utm_source=goodwlb.com&utm_content=badge"
+                    referrerPolicy="origin"
+                    target="_blank"
+                ><img
+                    src="https://simpleanalyticsbadges.com/goodwlb.com"
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                    crossOrigin="anonymous"
+                /></a>
             </div>
         </div>
     )
