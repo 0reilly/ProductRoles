@@ -2,8 +2,9 @@ import React from 'react'
 import JobHeader from '../components/JobHeader'
 import AdminJobForm from "../components/AdminJobForm";
 
-const AddJob = () => {
+const AdminAddJob = () => {
 
+    console.
     return (
         <div>
             <JobHeader/>
@@ -12,4 +13,4 @@ const AddJob = () => {
     )
 }
 
-export default AddJob
+export default AdminAddJob

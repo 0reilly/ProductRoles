@@ -9,7 +9,7 @@ import MDEditor from '@uiw/react-md-editor';
 import "react-colorful/dist/index.css";
 
 
-const JobForm = () => {
+const AdminJobForm = () => {
 
 
     const [promise, setPromise] = useState(() => loadStripe("pk_test_51HX92ADV5bqQz6pNUHpNfJziKCFf5lOBPO6A30apaEDI0Yb0jvwOmQCcebkay4TIcs2JIsrNxQs9vN8NImlsaevO0030bqBsJQ"));
@@ -192,4 +192,4 @@ const JobForm = () => {
 }
 
 
-export default JobForm
+export default AdminJobForm
