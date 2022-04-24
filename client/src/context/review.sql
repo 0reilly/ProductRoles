@@ -11,3 +11,13 @@ CREATE TABLE jobs (
 CREATE TABLE subscribers (
     email TEXT NOT NULL PRIMARY KEY,
 );
+
+//
+insert into jobs (name, pay, description, link, primary_tag, color) values (
+    'Developer',
+    '$10',
+    'Developing software',
+    'https://www.google.com',
+    'Developer',
+    '#ff0000'
+);

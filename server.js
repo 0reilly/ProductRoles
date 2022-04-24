@@ -52,7 +52,6 @@ app.post("/create-payment-intent", async (req, res) => {
       
     })
   })
-
   app.get('/add-job', function(req, res) {
     console.log(__dirname)
   res.sendFile(path.join(__dirname, '/client/build/index.html'), function(err) {
@@ -62,18 +61,6 @@ app.post("/create-payment-intent", async (req, res) => {
     }
 
     
-  })
-})
-
-  app.get('/admin-add', function(req, res) {
-    console.log(__dirname)
-  res.sendFile(path.join(__dirname, '/client/build/index.html'), function(err) {
-
-    if (err) {
-      res.status(500).send(err)
-    }
-
-
   })
 })
 

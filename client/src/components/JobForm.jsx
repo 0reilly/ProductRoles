@@ -95,15 +95,15 @@ const JobForm = () => {
                                 </select>
                             </div>
                             <div className="pt-2 pb-2">
-                                <span>DESCRIPTION</span>
-                                <div className="container">
-                                    <MDEditor
-                                        value={description}
-                                        onChange={setDescription}
-                                        autoFocus={0}
-                                        preview="edit"
-
-                                    />
+                                <span>Work/Life Balance Job Details</span>
+                                <div className="">
+                                    <div data-color-mode="light">
+                                        <div className="wmde-markdown-var"> </div>
+                                        <MDEditor source="Hello World!"
+                                            value={description}
+                                            onChange={setDescription}
+                                            preview="edit" />
+                                    </div>
                                 </div>
                             </div>
                             <div className="pt-2 pb-2">
@@ -116,7 +116,7 @@ const JobForm = () => {
                                 />
                             </div>
                             <div className="pt-2 pb-2">
-                                <span>PAY</span>
+                                <span>PAY (Insert only numbers e.g. 75000</span>
                                 <input
                                     value={pay}
                                     placeholder={'$'}
