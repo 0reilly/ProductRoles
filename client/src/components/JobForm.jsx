@@ -12,7 +12,7 @@ import "react-colorful/dist/index.css";
 const JobForm = () => {
 
 
-    const [promise, setPromise] = useState(() => loadStripe("pk_test_51HX92ADV5bqQz6pNUHpNfJziKCFf5lOBPO6A30apaEDI0Yb0jvwOmQCcebkay4TIcs2JIsrNxQs9vN8NImlsaevO0030bqBsJQ"));
+    const [promise, setPromise] = useState(() => loadStripe("pk_live_51HX92ADV5bqQz6pNkugJCzdENiJmAW3ghEm9ckAdKKhE7kGF55hASD3QQc12BwEXIXNCifNwzr4IBnkvElOpKVFK00Iecjr8sF"));
 
     const history = useHistory();
     const {addJobs} = useContext(JobsContext);
@@ -26,7 +26,7 @@ const JobForm = () => {
     const [link, setLink] = useState("");
     const [message, setMessage] = useState("");
     const [color, setColor] = useState("#ffffff");
-    const [price, setPrice] = useState(4900);
+    const [price, setPrice] = useState(499);
     const [highlight, setHighlight] = useState(false);
     const [addBrand, setAddBrand] = useState(false);
 
@@ -56,7 +56,7 @@ const JobForm = () => {
             setPrice(4900)
         } else if (value === "highlight") {
             setColor("#fff9c9");
-            setPrice(7900)
+            setPrice(799)
         }
     }
 
@@ -116,7 +116,7 @@ const JobForm = () => {
                                 />
                             </div>
                             <div className="pt-2 pb-2">
-                                <span>PAY (Insert only numbers e.g. 75000</span>
+                                <span>PAY (Insert only numbers e.g. 75000)</span>
                                 <input
                                     value={pay}
                                     placeholder={'$'}
@@ -139,7 +139,7 @@ const JobForm = () => {
                                 value="1"
                                 id="1"
                                 defaultChecked
-                            /><label for="1" className="pl-2">Just a basic post. (+$49)</label></p>
+                            /><label for="1" className="pl-2">Just a basic post. (+$4.99)</label></p>
                             <p><input
                                 onChange={(e) => handleAddon(e, "highlight")}
                                 type="radio"
@@ -149,7 +149,7 @@ const JobForm = () => {
                             /><label
                                 for="2"
                                 className="pl-2"
-                            >Highlight your post in Yellow (+$20) (2X MORE VIEWS)</label></p>
+                            >Highlight your post in Yellow (+$3) (2X MORE VIEWS)</label></p>
                         </div>
                     </div>
                     <div className="card mt-5 mb-5">

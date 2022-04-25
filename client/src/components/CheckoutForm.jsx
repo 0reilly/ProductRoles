@@ -47,10 +47,12 @@ const CheckoutForm = (props) => {
         e.preventDefault();
 
         window
-            .fetch("http://157.230.82.72:3001/create-payment-intent", {
+            .fetch("/create-payment-intent", {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+			"Access-Control-Allow-Origin": "*",
+			"Access-Control-Allow-Headers":"Content-Type"
                 },
                 body: JSON.stringify({items: [{price: props.price}]})
             })
