@@ -60,7 +60,22 @@ const JobList = (props) => {
                 })}
                 </tbody>
             </table>
+            <div class="container justify-content-end">
+                <div className="col-12 ml-5 mt-2"><a
+                    href="https://simpleanalytics.com/goodwlb.com?utm_source=goodwlb.com&utm_content=badge"
+                    referrerPolicy="origin"
+                    target="_blank"
+                ><img
+                    src="https://simpleanalyticsbadges.com/goodwlb.com"
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                    crossOrigin="anonymous"
+                /></a>
+                </div>
+            </div>
+
         </div>
+
     )
 }
 
