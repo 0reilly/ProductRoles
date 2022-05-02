@@ -101,8 +101,10 @@ const JobForm = () => {
                                         <div className="wmde-markdown-var"> </div>
                                         <MDEditor source="Hello World!"
                                             value={description}
+                                            autoFocus={false}
                                             onChange={setDescription}
-                                            preview="edit" />
+                                            preview="edit"
+                                            overflow={false}/>
                                     </div>
                                 </div>
                             </div>
