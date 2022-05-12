@@ -53,7 +53,7 @@ const JobForm = () => {
     const handleAddon = (e, value) => {
         console.log(value)
         if (value === "none") {
-            setPrice(4900)
+            setPrice(490)
         } else if (value === "highlight") {
             setColor("#fff9c9");
             setPrice(799)
@@ -85,7 +85,7 @@ const JobForm = () => {
                                     onChange={(e) => setPrimaryTag(e.target.value)}
                                     className="custom-select my-1 mr-sm-2"
                                 >
-                                    <option>Select a Role</option>
+                                    <option>Select a Role Type</option>
                                     <option value="Software Engineer">Software Engineer</option>
                                     <option value="Product Manager">Product Manager</option>
                                     <option value="Designer">Designer</option>
@@ -118,7 +118,7 @@ const JobForm = () => {
                                 />
                             </div>
                             <div className="pt-2 pb-2">
-                                <span>PAY (Insert only numbers e.g. 75000)</span>
+                                <span>PAY (single salary example: 85k, range example: 85k-115k)</span>
                                 <input
                                     value={pay}
                                     placeholder={'$'}
@@ -131,7 +131,7 @@ const JobForm = () => {
                     </div>
                     <div className="card mt-5">
                         <div className="card-header">
-                            <h4 className="text-center">Design Your Sponsership Offer</h4>
+                            <h4 className="text-center">Make your Job Post Stand Out</h4>
                         </div>
                         <div className="card-body">
                             <p><input
