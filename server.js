@@ -21,11 +21,11 @@ const stripe = require('stripe')(process.env.SECRET);
 
 if(process.env.NODE_ENV === "production"){
   app.use(express.static(path.join(__dirname, "client/build")));
-    
+
 }
 
 app.post("/create-payment-intent", async (req, res) => {
-  
+
     console.log(req.body.items[0].price)
     // Create a PaymentIntent with the order amount and currency
     const paymentIntent = await stripe.paymentIntents.create({
@@ -44,23 +44,23 @@ app.post("/create-payment-intent", async (req, res) => {
   app.get('/jobs/*', function(req, res) {
       console.log(__dirname)
     res.sendFile(path.join(__dirname, '/client/build/index.html'), function(err) {
-        
+
       if (err) {
         res.status(500).send(err)
       }
 
-      
+
     })
   })
   app.get('/add-job', function(req, res) {
     console.log(__dirname)
   res.sendFile(path.join(__dirname, '/client/build/index.html'), function(err) {
-      
+
     if (err) {
       res.status(500).send(err)
     }
 
-    
+
   })
 })
 
@@ -68,6 +68,7 @@ app.post("/create-payment-intent", async (req, res) => {
 app.get("/api/v1/jobs", async (req, res) => {
     try {
         const results = await db.query("select * from jobs");
+        console.log('query results: ', results);
     res.status(200).json({
         status: "success",
         results: results.rows.length,
@@ -75,12 +76,12 @@ app.get("/api/v1/jobs", async (req, res) => {
             jobs: results.rows
         },
     });
-    
+
     } catch(err){
         console.log(err)
     }
-    
-    
+
+
 });
 
 //Get induvidual job
@@ -97,7 +98,7 @@ app.get("/api/v1/jobs/:id", async (req, res) => {
     catch(err){
         console.log(err)
     }
-    
+
 });
 
 //Create a job
@@ -114,14 +115,13 @@ app.post("/api/v1/jobs", async (req, res) =>{
     }catch(err){
         console.log(err);
     }
-    
+
 });
 
 //Create a job
 app.post("/api/v1/jobs/email", async (req, res) =>{
   console.log(req)
     try{
-
         const results = await db.query("INSERT INTO subscribers (email) values ($1) returning *", [req.body.email])
         res.status(201).json({
             status: "success",
@@ -132,7 +132,7 @@ app.post("/api/v1/jobs/email", async (req, res) =>{
     }catch(err){
         console.log(err);
     }
-    
+
 });
 
 
