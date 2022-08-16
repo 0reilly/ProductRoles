@@ -2,7 +2,7 @@ import React from 'react'
 import JobForm from '../components/JobForm'
 import JobHeader from '../components/JobHeader'
 
-const AddJob = () => {
+const SignUp = () => {
 
     return (
         <div>
@@ -12,4 +12,4 @@ const AddJob = () => {
     )
 }
 
-export default AddJob
+export default SignUp

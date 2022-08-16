@@ -10,140 +10,60 @@ import "react-colorful/dist/index.css";
 
 
 const JobForm = () => {
-
-
     const [promise, setPromise] = useState(() => loadStripe("pk_live_51HX92ADV5bqQz6pNkugJCzdENiJmAW3ghEm9ckAdKKhE7kGF55hASD3QQc12BwEXIXNCifNwzr4IBnkvElOpKVFK00Iecjr8sF"));
-
     const history = useHistory();
-    const {addJobs} = useContext(JobsContext);
-    const [name, setName] = useState("");
-    const [position, setPosition] = useState("");
-    const [primaryTag, setPrimaryTag] = useState("Primary Tag");
-    const [pay, setPay] = useState("");
     const [email, setEmail] = useState("");
-    const [description, setDescription] = useState("");
+    const [succeeded, setSucceeded] = useState(false);
     const [billing, setBilling] = useState("");
-    const [link, setLink] = useState("");
-    const [message, setMessage] = useState("");
-    const [color, setColor] = useState("#ffffff");
-    const [price, setPrice] = useState(499);
-    const [highlight, setHighlight] = useState(false);
-    const [addBrand, setAddBrand] = useState(false);
+    const [price, setPrice] = useState(8999);
 
 
     const handleForm = async () => {
-        console.log(color)
+        console.log('handleForm')
+        setSucceeded(true);
         try {
-            const response = await JobFinder.post("/", {
-                name,
-                pay,
-                primary_tag: primaryTag,
-                description,
-                link,
-                highlight,
-                color
+            const response = await JobFinder.post("/email", {
+                email
             })
-            addJobs(response.data.data.job)
-            console.log("added to db")
+            console.log(response)
         } catch (err) {
-
         }
     };
 
     const handleAddon = (e, value) => {
-        console.log(value)
-        if (value === "none") {
-            setPrice(490)
-        } else if (value === "highlight") {
-            setColor("#fff9c9");
-            setPrice(799)
+        if (value === "weekly") {
+            setPrice(499)
+        } else if (value === "monthly") {
+            setPrice(1999)
         }
+        else {
+            setPrice(8999);
+        }
+    }
+
+    const goHome = () => {
+        history.push("/")
     }
 
     return (
         <>
             <div className="ml-4 mr-4 mt-4  d-flex flex-row justify-content-center">
                 <form action="">
-                    <div className="card">
-                        <div class="card-header">
-                            <h4 className="text-center">Let's Start</h4>
-                        </div>
-                        <div className="card-body">
-                            <div className="pt-2 pb-2">
-                                <span className="head">COMPANY NAME</span>
-                                <input
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                    type="text"
-                                    className="form-control"
-                                />
-                            </div>
-                            <div className="pt-2 pb-2">
-                                <span>Job Title</span>
-                                <select
-                                    value={primaryTag}
-                                    onChange={(e) => setPrimaryTag(e.target.value)}
-                                    className="custom-select my-1 mr-sm-2"
-                                >
-                                    <option>Select a Role Type</option>
-                                    <option value="Software Engineer">Software Engineer</option>
-                                    <option value="Product Manager">Product Manager</option>
-                                    <option value="Designer">Designer</option>
-                                    <option value="Content Writer">Content Writer</option>
-                                    <option value="QA">QA</option>
-                                    <option value="Customer Support">Customer Support</option>
-                                </select>
-                            </div>
-                            <div className="pt-2 pb-2">
-                                <span>Work/Life Balance Job Details</span>
-                                <div className="">
-                                    <div data-color-mode="light">
-                                        <div className="wmde-markdown-var"> </div>
-                                        <MDEditor source="Hello World!"
-                                            value={description}
-                                            autoFocus={false}
-                                            onChange={setDescription}
-                                            preview="edit"
-                                            overflow={false}/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="pt-2 pb-2">
-                                <span>APPLY URL</span>
-                                <input
-                                    value={link}
-                                    onChange={(e) => setLink(e.target.value)}
-                                    className="form-control"
-                                    type="text"
-                                />
-                            </div>
-                            <div className="pt-2 pb-2">
-                                <span>PAY (single salary example: 85k, range example: 85k-115k)</span>
-                                <input
-                                    value={pay}
-                                    placeholder={'$'}
-                                    onChange={(e) => setPay(e.target.value)}
-                                    className="form-control"
-                                    type="text"
-                                />
-                            </div>
-                        </div>
-                    </div>
                     <div className="card mt-5">
                         <div className="card-header">
-                            <h4 className="text-center">Make your Job Post Stand Out</h4>
+                            <h4 className="text-center">3 Days Free, then $89.99/year</h4>
                         </div>
                         <div className="card-body">
                             <p><input
-                                onChange={(e) => handleAddon(e, "none")}
+                                onChange={(e) => handleAddon(e, "yearly")}
                                 type="radio"
                                 name="addon"
                                 value="1"
                                 id="1"
                                 defaultChecked
-                            /><label for="1" className="pl-2">Just a basic post. (+$4.99)</label></p>
+                            /><label for="1" className="pl-2"><strike>260.19</strike> $89.99 per year BEST VALUE</label></p>
                             <p><input
-                                onChange={(e) => handleAddon(e, "highlight")}
+                                onChange={(e) => handleAddon(e, "monthly")}
                                 type="radio"
                                 name="addon"
                                 id="2"
@@ -151,16 +71,26 @@ const JobForm = () => {
                             /><label
                                 for="2"
                                 className="pl-2"
-                            >Highlight your post in Yellow (+$3) (2X MORE VIEWS)</label></p>
+                            >$19.99 per month</label></p>
+                            <p><input
+                                onChange={(e) => handleAddon(e, "monthly")}
+                                type="radio"
+                                name="addon"
+                                id="2"
+                                value="2"
+                            /><label
+                                htmlFor="2"
+                                className="pl-2"
+                            >$4.99 per month</label></p>
                         </div>
                     </div>
                     <div className="card mt-5 mb-5">
                         <div className="card-header">
-                            <h4 className="text-center">Finalize Listing</h4>
+                            <h4 className="text-center">Start building your Bounce page </h4>
                         </div>
                         <div className="card-body">
                             <div className="pt-2 pb-2">
-                                <span>COMPANY EMAIL</span>
+                                <span>CUSTOMER EMAIL</span>
                                 <input
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
@@ -183,6 +113,17 @@ const JobForm = () => {
                                     <CheckoutForm price={price} form={handleForm} />
                                 </Elements>
                             </div>
+                        </div>
+                    </div>
+                    <div className={succeeded ? "p-4 justify-content-center result-message" : "p-4 justify-content-center result-message hidden"}>
+                        <div className="row">
+                            <button className="btn btn-primary" onClick={goHome}>
+                                Home.
+                            </button>
+                        </div>
+                        <div className="row">
+                            <h4>There's some good news and bad news.. Good news is that we're working hard to make the best link in bio tool available.. Bad news is that it's not ready yet! </h4>
+                            <h4>We haven't charged your card.. and we'll email you once the app is ready to use! Thanks a ton for your support.</h4>
                         </div>
                     </div>
                 </form>

@@ -5,34 +5,30 @@ import { JobsContextProvider } from './context/JobContext';
 
 
 import Home from './routes/Home';
-import AddJob from './routes/AddJob';
-import JobDetailPage from "./routes/JobDetailPage";
-import PaymentSuccess from "./routes/PaymentSuccess";
+import SignUp from './routes/SignUp';
 
 
 const App = () => {
 
     return (
-        
+
     <div>
-        
+
         <JobsContextProvider>
         <div className="container">
             <Router>
-           
+
                 <Switch>
                     <Route exact path="/" component={Home}/>
-                    <Route exact path="/add-job" component={AddJob}/>
-                    <Route exact path="/jobs/:id" component={JobDetailPage}/>
-                    <Route exact path="/success" component={PaymentSuccess}/>
+                    <Route exact path="/sign-up" component={SignUp}/>
                 </Switch>
-                
+
             </Router>
         </div>
         </JobsContextProvider>
-        
+
     </div>
-    
+
 
     )
 

@@ -1,14 +1,12 @@
 import React from 'react'
 import Header from "../components/Header"
-import JobList from '../components/JobList'
-import Email from '../components/Email'
+import SalesInformation from "../components/SalesInformation";
 
 const Home = () => {
     return (
         <>
-            <Header/>
-            <Email/>
-            <JobList/>
+            <Header />
+            <SalesInformation />
         </>
     )
 }
