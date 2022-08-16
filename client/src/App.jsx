@@ -12,8 +12,7 @@ const App = () => {
 
     return (
 
-    <div>
-
+    <div className='background'>
         <JobsContextProvider>
         <div className="container">
             <Router>
@@ -26,7 +25,6 @@ const App = () => {
             </Router>
         </div>
         </JobsContextProvider>
-
     </div>
 
 

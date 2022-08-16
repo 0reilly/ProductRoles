@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {loadStripe} from "@stripe/stripe-js";
 import {Elements} from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
@@ -13,7 +13,9 @@ const JobForm = () => {
     const [billing, setBilling] = useState("");
     const [price, setPrice] = useState(8999);
 
-    console.log('price', price)
+    useEffect(()=>{
+        window.scrollTo(0,0);
+    },[])
 
     const handleForm = async () => {
         console.log('handleForm', email)
@@ -45,6 +47,7 @@ const JobForm = () => {
                             <div className="card mt-5">
                                 <div className="card-header">
                                     <h4 className="text-center">3 Days Free, then $89.99/year</h4>
+                                    <h4 className="text-center">(Best deal)</h4>
                                 </div>
                                 <div className="card-body">
                                     <p>
@@ -59,7 +62,7 @@ const JobForm = () => {
                                         <label
                                             htmlFor="1"
                                             className="pl-2"
-                                        ><strike>260.19</strike> $89.99 per year BEST VALUE
+                                        > <strike> 260.19</strike> $89.99 per year
                                         </label>
                                     </p>
                                     <p>
