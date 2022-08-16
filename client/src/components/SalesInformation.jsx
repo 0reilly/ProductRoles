@@ -86,6 +86,7 @@ const SalesInformation = () => {
                     <div className="col-6 pl-0 mt-4">
                         <h6 className="row">Adam O’Reilly</h6>
                         <h6 className="row">Founder and CEO</h6>
+                        <a href="mailto:adam@bounce.bio">Email me</a>
                     </div>
                 </div>
 
