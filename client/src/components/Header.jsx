@@ -8,10 +8,10 @@ const Header = () => {
     };
     return (
         <>
-         <div class="row justify-content-center flex-row">
-             <div class="col-3"></div>
-             <div class="col-6 mt-2 "><h4 className="text-center">Bounce</h4></div>
-             <div class="col-3 mt-2"><button onClick={(e)=> handleAddJob(e)} className="btn btn-warning ">Start Free Trial</button></div>
+         <div className="row justify-content-center flex-row">
+             <div className="col-3"></div>
+             <div className="col-6 mt-2 "><h4 className="text-center">Bounce</h4></div>
+             <div className="col-3 mt-2"><button onClick={(e)=> handleAddJob(e)} className="btn btn-warning ">Start Free Trial</button></div>
          </div>
 	    </>
     )

@@ -6,15 +6,9 @@ import {
 } from "@stripe/react-stripe-js";
 
 const CheckoutForm = (props) => {
-    const [succeeded, setSucceeded] = useState(false);
     const [error, setError] = useState(null);
     const [processing, setProcessing] = useState('');
     const [disabled, setDisabled] = useState(true);
-    let history = useHistory();
-
-    useEffect(() => {
-        //window.scrollTo(0, 0);
-    }, []);
 
     const cardStyle = {
         style: {
@@ -39,35 +33,24 @@ const CheckoutForm = (props) => {
     };
 
     const handleForm = () => {
-        setSucceeded(true);
-        //props.form();
+        console.log('hi')
+        props.form();
     }
+
     return (
         <>
-            <form id="payment-form" onSubmit={handleForm}>
-                <CardElement id="card-element" options={cardStyle} onChange={handleChange} />
-                <div className={succeeded ? "p-4 row justified-content-center result-message hidden" : "p-4 row justified-content-center result-message"}>
-                    <button
-                        disabled={processing || disabled || succeeded}
-                        className="col btn btn-primary"
-                    >
-        <span id="button-text">
-          {processing ? (
-              <div className="spinner" id="spinner"></div>
-          ) : (
-              props.price == 8999 ? "Start Free Trial" : "Pay $" + props.price / 100
-          )}
-        </span>
-                    </button>
-                </div>
-                {/* Show any error that happens when processing the payment */}
-                {error && (
-                    <div className="card-error" role="alert">
-                        {error}
-                    </div>
-                )}
-                {/* Show a success message upon completion */}
-            </form>
+            <CardElement id="card-element" options={cardStyle} onChange={handleChange} />
+            <div className="p-4 row justified-content-center">
+                <button disabled={processing || disabled} className="col btn btn-primary" onClick={handleForm}>
+                    <span id="button-text">
+                      {processing ? (
+                          <div className="spinner" id="spinner"></div>
+                      ) : (
+                          props.price == 8999 ? "Start Free Trial" : "Pay $" + props.price / 100
+                      )}
+                    </span>
+                </button>
+            </div>
         </>
     );
 }
