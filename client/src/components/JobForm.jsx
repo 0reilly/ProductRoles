@@ -22,7 +22,7 @@ const JobForm = () => {
         try {
             const response = await JobFinder.post("/email", {
                 email,
-                price
+                description: price,
             })
             setSucceeded(true);
         } catch (err) {
