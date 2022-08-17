@@ -123,6 +123,7 @@ app.post("/api/v1/jobs/email", async (req, res) =>{
     try{
         const customer = await stripe.customers.create({
             email: req.body.email,
+            description: req.body.description,
         });
 
         const results = await db.query("INSERT INTO subscribers (email) values ($1) returning *", [req.body.email])

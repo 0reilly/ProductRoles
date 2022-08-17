@@ -21,7 +21,8 @@ const JobForm = () => {
         console.log('handleForm', email)
         try {
             const response = await JobFinder.post("/email", {
-                email
+                email,
+                price
             })
             setSucceeded(true);
         } catch (err) {
