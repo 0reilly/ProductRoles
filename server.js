@@ -27,7 +27,6 @@ if(process.env.NODE_ENV === "production"){
 }
 
 app.post("/create-payment-intent", async (req, res) => {
-
     console.log(req.body.items[0].price)
     // Create a PaymentIntent with the order amount and currency
     const paymentIntent = await stripe.paymentIntents.create({
@@ -119,10 +118,12 @@ app.post("/api/v1/jobs", async (req, res) =>{
 
 });
 
-//Create a job
+//add email
 app.post("/api/v1/jobs/email", async (req, res) =>{
-  console.log(req)
     try{
+        const customer = await stripe.customers.create({
+            email: req.body.email,
+        });
 
         const results = await db.query("INSERT INTO subscribers (email) values ($1) returning *", [req.body.email])
         res.status(201).json({
